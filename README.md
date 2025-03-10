@@ -3,6 +3,7 @@ This was a quick project I threw together to test getting a camera from my Mac h
 
 # Update the system
 sudo apt update
+
 sudo apt install ros-humble-compressed-image-transport
 
 # Start a ROS2 container
@@ -13,7 +14,9 @@ pip install "numpy<2" --force-reinstall
 
 # Build the node
 cd ~/ros2_webcam_ws
+
 colcon build
+
 source install/setup.bash
 
 # Start broadcasting video from Mac host
