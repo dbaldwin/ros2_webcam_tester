@@ -1,13 +1,13 @@
 # Overview
 This was a quick project I threw together to test getting a camera from my Mac host into a ROS2 container. It's also an experiment related to testing image_raw vs image_raw/compressed frames and finding the ideal solution.
 
+# Start a ROS2 container
+docker run -p 6080:80 -p 5005:5005/udp -v ${PWD}:/home/ubuntu/ros2_webcam_ws/src --name=ros2-webcam-tester --security-opt seccomp=unconfined --shm-size=512m ghcr.io/tiryoh/ros2-desktop-vnc:humble
+
 # Update the system
 sudo apt update
 
 sudo apt install ros-humble-compressed-image-transport
-
-# Start a ROS2 container
-docker run -p 6080:80 -p 5005:5005/udp -v ${PWD}:/home/ubuntu/ros2_webcam_ws/src --name=ros2-webcam-tester --security-opt seccomp=unconfined --shm-size=512m ghcr.io/tiryoh/ros2-desktop-vnc:humble
 
 # Fix numpy so we can run the node
 pip install "numpy<2" --force-reinstall
